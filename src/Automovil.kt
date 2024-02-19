@@ -17,8 +17,9 @@ class Automovil(
         }
     }
 
-    fun cambiarCondicionBritanica(nuevaCondicion : Boolean){
+    fun cambiarCondicionBritanica(nuevaCondicion : Boolean):Boolean{
         esElectrico = nuevaCondicion
+        return nuevaCondicion // se cambia aqui dentro pero en el toString no
     }
 
     fun realizarDerrape():Double{
