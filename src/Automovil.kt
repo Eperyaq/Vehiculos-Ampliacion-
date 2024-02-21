@@ -3,32 +3,37 @@ class Automovil(
     modelo:String,
     capacidadCombustible: Double,
     combustibleActual:Double,
-    kilometrosActuales:Int,
-    var esElectrico: Boolean,
+    kilometrosActuales:Double,
+    var esHibrido: Boolean,
     var condicionBritanica: Boolean)
     : Vehiculo( marca,  modelo, capacidadCombustible, combustibleActual,  kilometrosActuales) {
 
-    override fun calcularAutonomia(): Int {
-        if (esElectrico == true){
-            var recorrer2 = combustibleActual * 5 // Cada litro por 5km si es electrico
-            return recorrer2.toInt()
+    override fun calcularAutonomia(): Double {
+        if (esHibrido == true){
+            var recorrer2 = combustibleActual * 5 // Cada litro por 5km si es electrico o 15??
+            return recorrer2
         }else{
             return super.calcularAutonomia()
         }
     }
 
     fun cambiarCondicionBritanica(nuevaCondicion : Boolean):Boolean{
-        esElectrico = nuevaCondicion
-        return nuevaCondicion // se cambia aqui dentro pero en el toString no
+        var conduccionBritanica = nuevaCondicion
+        return conduccionBritanica // se cambia aqui dentro pero en el toString no
     }
 
     fun realizarDerrape():Double{
-        var derrapar = combustibleActual - (combustibleActual *5)
-        return derrapar
+        if (esHibrido == true){ // si es hibrido consume 6.25km
+            var derrapar = combustibleActual - (combustibleActual * 6.25)
+            return derrapar
+        }else { //si no es hibrido consume 7.5km
+            var derrapar = combustibleActual - (combustibleActual * 7.5)
+            return derrapar
+        }
     }
 
 
     override fun toString(): String {
-        return "Marca: $marca, Modelo: $modelo, Capacidad Combustible: $capacidadCombustible, Combusible Actual: $combustibleActual, Kilometros actuales: $kilometrosActuales, Electrico: $esElectrico, Condicion Britancia : $condicionBritanica"
+        return "Marca: $marca, Modelo: $modelo, Capacidad Combustible: $capacidadCombustible, Combusible Actual: $combustibleActual, Kilometros actuales: $kilometrosActuales, Hibrido: $esHibrido, Condicion Britancia : $condicionBritanica"
     }
 }

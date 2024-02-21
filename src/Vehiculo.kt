@@ -1,4 +1,6 @@
-open class Vehiculo(val marca:String, val modelo:String, val capacidadCombustible: Double, val combustibleActual:Double, val kilometrosActuales:Int) {
+
+
+open class Vehiculo(val marca:String, val modelo:String, val capacidadCombustible: Double, val combustibleActual:Double, val kilometrosActuales:Double) {
 
     /*
     * Obtienes los km que se pueden recorrer con los litros de gasolina que tienes
@@ -12,17 +14,25 @@ open class Vehiculo(val marca:String, val modelo:String, val capacidadCombustibl
     /**
      * Calcula la autonomia del vehiculo
      */
-    open fun calcularAutonomia(): Int{
+    open fun calcularAutonomia(): Double{
          var recorrer2 = combustibleActual * 10
-         return recorrer2.toInt()
+         return recorrer2
      }
 
     /*
     * Realiza un viaje y resta gasolina, si sale negativo son los km que le faltan para llegar al destino
+    * problemitass
     **/
-    open fun realizaViaje(distancia:Int): Int{
-        var viaje =  (combustibleActual * 10) - distancia // son los kilometros que puede hacer
-        return viaje.toInt()
+    open fun realizaViaje(distancia:Double): Double{
+        var viaje = 0.0
+        while (distancia > combustibleActual){
+             viaje =  (combustibleActual * 10) - distancia // son los kilometros que puede hacer
+            if (distancia > viaje){
+                repostar(12.0) // Se queda en un bucle infinito, porque no se cambia el valor de combustible actual??
+
+            }
+        }
+        return viaje
     }
 /*
 * Echas gasolina
@@ -36,9 +46,12 @@ open class Vehiculo(val marca:String, val modelo:String, val capacidadCombustibl
         if (cantidad > capacidadCombustible){
             var echargasolina= capacidadCombustible
             return  echargasolina
-        }else{
+        }else if(cantidad <= 0){
+            var echargasolina= capacidadCombustible
+            return  echargasolina
+        } else{
             var echargasolina = cantidad + combustibleActual
-            return echargasolina
+            return echargasolina // o cantidad? porque dice que devuelve la cantidad respostada es decir lo que ha metido, la variable cantidad
         }
     }
 
