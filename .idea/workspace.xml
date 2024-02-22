@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6563f5c-33e9-4f3c-a410-ca315dc959b3" name="Changes" comment="Terminado con un par de problemas en el coche">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coches_Ampliados.iml" beforeDir="false" afterPath="$PROJECT_DIR$/coches_Ampliados.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Automovil.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Automovil.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Motocicleta.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Motocicleta.kt" afterDir="false" />
@@ -44,6 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/usuariot/reposgit/Vehiculos-Ampliacion-",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0"
@@ -52,8 +55,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-19.0.2-corretto-19.0.2-8336523bb0d9-b81783ad" />
-        <option value="jdk-21.0.1-openjdk-21.0.1-8336523bb0d9-657b72ed" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>
@@ -91,22 +93,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="Terminado con un par de problemas en el coche" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/src/Vehiculo.kt</url>
-          <line>25</line>
-          <properties class="Vehiculo" method="realizaViaje">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="JetRunConfigurationType">
         <watch expression="combustibleActual" />
+        <watch expression="diferencia" />
+        <watch expression="calcularAutonomia()" />
+        <watch expression="distancia" />
       </configuration>
     </watches-manager>
   </component>

@@ -1,27 +1,28 @@
 class Motocicleta(marca:String,
                   modelo:String,
-                  capacidadCombustible: Double,
-                  combustibleActual:Double,
-                  kilometrosActuales:Double,
+                  capacidadCombustible: Float,
+                  combustibleActual:Float,
+                  kilometrosActuales:Float,
                   val cilindrada: Int):Vehiculo(marca, modelo,capacidadCombustible,combustibleActual,kilometrosActuales) {
 
-    override fun calcularAutonomia(): Double {
+    override fun calcularAutonomia(): Float {
         var recorrer2 = combustibleActual * 20
         return recorrer2
     }
 
-    override fun realizaViaje(distancia: Double): Double {
+    override fun realizaViaje(distancia: Float): Float {
         if (cilindrada == 1000){
-            var viaje =  (combustibleActual * 20) - distancia // son los kilometros que puede hacer
+            var viaje =  (combustibleActual * 20F) - distancia // son los kilometros que puede hacer
             return viaje
         }else if (cilindrada == 500){
-            var viaje =  (combustibleActual * 19.5) - distancia // son los kilometros que puede hacer
+            var viaje =  (combustibleActual * 19.5F) - distancia // son los kilometros que puede hacer
             return viaje
         }else if (cilindrada == 125){
-            var viaje =  (combustibleActual * 19.125) - distancia // son los kilometros que puede hacer
+            var viaje =  (combustibleActual * 19.125F) - distancia // son los kilometros que puede hacer
             return viaje
         }
-        //este error me ralla, entiendo que me falta un return para el body de la funcion pero tengo 3 en los if que pongo en el return de fuera??
+
+        return 0.0f
     }
 
     fun realizaCaballito():Double{

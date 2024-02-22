@@ -1,7 +1,8 @@
 fun main() {
-    var pepino = Vehiculo("Seat","Ibiza",12.3, 10.0, 144.0)
+    var pepino = Vehiculo("Seat","Ibiza",12.3F, 10.0F, 144.0F)
     println(pepino.obtenerInformacion())
-    println(pepino.realizaViaje(101.0)) // Si sale negativo es porque falta combustible para realizar el viaje completp
+    println(pepino.realizaViaje(150.0F)) // Si sale negativo es porque falta combustible para realizar el viaje completp
+
 
 
 
