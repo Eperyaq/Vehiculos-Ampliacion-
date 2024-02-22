@@ -1,10 +1,34 @@
+fun String.capitalizar(): String {
+    val palabras: MutableList<String> = this.trim().split(" ").toMutableList()
 
+    for (i in 0..palabras.size - 1) {
+        palabras[i] = palabras[i].trim().lowercase().replaceFirstChar { it.uppercase() }
+    }
 
-open class Vehiculo(val marca:String, val modelo:String, val capacidadCombustible: Float, var combustibleActual:Float, var kilometrosActuales:Float) {
+    //return palabras.joinToString(" ") { palabra -> palabra.trim().lowercase().replaceFirstChar { it.uppercase() } }
+
+    return palabras.joinToString(" ")
+    //return this.trim().lowercase().replaceFirstChar { it.uppercase() }
+}
+
+open class Vehiculo(
+        nombre: String, val marca:String, val modelo:String, val capacidadCombustible: Float, var combustibleActual:Float, var kilometrosActuales:Float) {
+
+    val nombre: String = nombre.capitalizar()
+
+    init {
+        require(!existeNombre(nombre)) { "Ya existe el nombre $nombre." }
+    }
+
 // hay que meterle un nombre  y comprobar que no haya ninguno igual con un conjunto o con una lista y comprobar que no haya ninguno igual
     //el nnombre va en  un companion object
     companion object {
         const val KM_POR_LITRO = 10f //Cada L recorre 10 km
+
+        val nombres: MutableSet<String> = mutableSetOf()
+        private fun existeNombre(nombre: String) : Boolean {
+            return !nombres.add(nombre)
+        }
     }
 
     /**
@@ -27,15 +51,13 @@ open class Vehiculo(val marca:String, val modelo:String, val capacidadCombustibl
     **/
     //realizaViaje(distancia: Float) -> Float: Realiza un viaje hasta donde da combustibleActual. Ajusta el combustible gastado y el kilometraje realizado de acuerdo con el viaje. Devuelve la distancia restante.
     open fun realizaViaje(distancia:Float): Float{
-        if (distancia < calcularAutonomia()){
-            var diferencia =  calcularAutonomia() - distancia
 
-            actualizarKm(diferencia)
-            return 0f
-        }else {
-            var diferencia2 =  distancia - calcularAutonomia()
-            return diferencia2
-        }
+        val distanciaARecorrer = minOf(calcularAutonomia(), distancia)
+
+        actualizarCombustible(distanciaARecorrer)
+        actualizarKm(distanciaARecorrer)
+
+        return distancia - distanciaARecorrer
 
     }
     /*
@@ -43,12 +65,16 @@ open class Vehiculo(val marca:String, val modelo:String, val capacidadCombustibl
     *
     * @Params restante:Float -> Indica el valor a restar
     * */
-    fun actualizarCombustible(restante:Float) =  combustibleActual - restante
+    open fun actualizarCombustible(distancia:Float) {
+        combustibleActual -= distancia / KM_POR_LITRO
+    }
 
-    fun actualizarKm(restar : Float) = kilometrosActuales + restar
+    private fun actualizarKm(distancia : Float) {
+        kilometrosActuales += distancia
+    }
 
 
-/*
+/**
 * Echas gasolina
 *
 * @Params Cantidad- Double -> Cantidad a repostar
@@ -57,16 +83,18 @@ open class Vehiculo(val marca:String, val modelo:String, val capacidadCombustibl
 * */
     fun repostar(cantidad:Float = 0f):Float{
 
-        if (cantidad > capacidadCombustible - combustibleActual){
-            var echargasolina= capacidadCombustible //hacer el caluclo para que de lo que ha repostado porque si ya tienes 10l y le metes 40 commo el tope es 30 te sobra 20
-            return  echargasolina
-        }else if(cantidad <= 0){
-             combustibleActual=  capacidadCombustible
-            return  combustibleActual
-        } else{
-            var echargasolina = cantidad + combustibleActual
-            return echargasolina // o cantidad? porque dice que devuelve la cantidad respostada es decir lo que ha metido, la variable cantidad
-        }
+        val lleno = capacidadCombustible - combustibleActual
+
+        val cantidadARepostar =
+            if (cantidad <= 0)
+                lleno
+            else
+                minOf(lleno, cantidad + combustibleActual)
+
+        combustibleActual += cantidadARepostar
+
+        return cantidadARepostar
+
     }
 
 
