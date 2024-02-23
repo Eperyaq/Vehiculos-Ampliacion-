@@ -1,3 +1,6 @@
+import kotlin.random.Random
+import kotlin.random.nextInt
+
 class Carrera(
         val nombreCarrera: String,
         val distanciaTotal: Float, //km de carrera
@@ -12,24 +15,34 @@ class Carrera(
         return participantes.random()
     }
 
-    fun obtenerdistancia():Vehiculo{
-        Vehiculo.realizarviaje(distancia.random(10..200)) // lo he puesto aunque no funcione para preguntar
+
+
+    fun comprobarGanador(distanciaRecorrida:Float):String{
+        if (distanciaRecorrida == distanciaTotal ){
+            estado = false
+            return "Felicidades ${Vehiculo.nombres} ha ganado!!"
+        }
+            estado = true
 
     }
 
-    fun comprobarGanador(){
-        if (distanciaTotal == )
+    fun avanzarVehiculo(vehiculo: Vehiculo){
+        val kmARecorrer = Random.nextInt(10..201).toFloat()
+        vehiculo.realizaViaje(kmARecorrer)
     }
+
 
     fun iniciaCarrera() {
 
         estado = true
 
+
+        //avanzarvehiculo(Vehiculo y km)
+
         while (estado) {
 
             val vehiculo = obtenerVehiculo()
 
-            TODO("Obtener la distancia que el vehiculo debe recorrer entre 10 y 200")
 
             //avanzarVehiculo(vehiculo)
 
@@ -42,5 +55,23 @@ class Carrera(
         }
     }
 
+
+    /**
+     * Representa el resultado final de un vehículo en la carrera, incluyendo su posición final, el kilometraje total recorrido,
+     * el número de paradas para repostar, y un historial detallado de todas las acciones realizadas durante la carrera.
+     *
+     * @property vehiculo El [Vehiculo] al que pertenece este resultado.
+     * @property posicion La posición final del vehículo en la carrera, donde una posición menor indica un mejor rendimiento.
+     * @property kilometraje El total de kilómetros recorridos por el vehículo durante la carrera.
+     * @property paradasRepostaje El número de veces que el vehículo tuvo que repostar combustible durante la carrera.
+     * @property historialAcciones Una lista de cadenas que describen las acciones realizadas por el vehículo a lo largo de la carrera, proporcionando un registro detallado de su rendimiento y estrategias.
+     */
+    data class ResultadoCarrera(
+        val vehiculo: Vehiculo,
+        val posicion: Int,
+        val kilometraje: Float,
+        val paradasRepostaje: Int,
+        val historialAcciones: List<String>
+    )
 
 }

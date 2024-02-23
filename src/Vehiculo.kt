@@ -34,8 +34,7 @@ open class Vehiculo(
     /**
      *
      * Obtienes los km que se pueden recorrer con los litros de gasolina que tienes
-
-    **/
+     **/
     fun obtenerInformacion():String{
         return "Con $combustibleActual L de combustible se pueden recorrer %.2f".format(calcularAutonomia())
     }
@@ -47,7 +46,7 @@ open class Vehiculo(
 
     /**
     * Realiza un viaje y resta gasolina, si sale negativo son los km que le faltan para llegar al destino
-    * problemitass
+    *
     **/
     //realizaViaje(distancia: Float) -> Float: Realiza un viaje hasta donde da combustibleActual. Ajusta el combustible gastado y el kilometraje realizado de acuerdo con el viaje. Devuelve la distancia restante.
     open fun realizaViaje(distancia:Float): Float{
@@ -57,7 +56,7 @@ open class Vehiculo(
         actualizarCombustible(distanciaARecorrer)
         actualizarKm(distanciaARecorrer)
 
-        return distancia - distanciaARecorrer
+        return distancia - distanciaARecorrer //retorna los km que quedan por hacer
 
     }
     /**

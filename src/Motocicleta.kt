@@ -23,6 +23,8 @@ class Motocicleta(nombre:String,
             return viaje
         }
 
+        KM_POR_LITRO - (cilindrada /1000)
+
         return 0.0f
     }
 
