@@ -12,20 +12,11 @@ class Motocicleta(nombre:String,
     }
 
     override fun realizaViaje(distancia: Float): Float {
-        if (cilindrada == 1000){
-            var viaje =  (combustibleActual * 20F) - distancia // son los kilometros que puede hacer
-            return viaje
-        }else if (cilindrada == 500){
-            var viaje =  (combustibleActual * 19.5F) - distancia // son los kilometros que puede hacer
-            return viaje
-        }else if (cilindrada == 125){
-            var viaje =  (combustibleActual * 19.125F) - distancia // son los kilometros que puede hacer
-            return viaje
-        }
+        val kilometros = KM_POR_LITRO - (cilindrada /1000)
 
-        KM_POR_LITRO - (cilindrada /1000)
+        var viaje =  distancia - (combustibleActual * kilometros) // son los kilometros que puede hacer
+        return viaje
 
-        return 0.0f
     }
 
     fun realizaCaballito():Double{

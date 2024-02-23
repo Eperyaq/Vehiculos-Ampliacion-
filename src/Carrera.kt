@@ -1,6 +1,6 @@
 import kotlin.random.Random
 import kotlin.random.nextInt
-
+/*
 class Carrera(
         val nombreCarrera: String,
         val distanciaTotal: Float, //km de carrera
@@ -75,3 +75,4 @@ class Carrera(
     )
 
 }
+*/

@@ -13,8 +13,9 @@ fun main() {
     println("-------------------------------------------")
     println()
 
-    var moto = Motocicleta("Elia el loco","BMW","SI",5.0f,1.0f,2000f,125)
+    var moto = Motocicleta("Elia el loco","BMW","SI",5.0f,1.0f,2000f,1000)
     println(moto)
+    println(moto.realizaViaje(4.0f)) // valor pequeño da negativo, valor grande esta bien
     println(moto.realizaCaballito())
     println(moto.calcularAutonomia())
     println(moto.repostar(200.0f))
