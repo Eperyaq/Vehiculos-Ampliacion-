@@ -1,23 +1,24 @@
 fun main() {
-    var pepino = Vehiculo("Seat","Ibiza",12.3F, 10.0F, 144.0F)
+    var pepino = Vehiculo("VITI","Seat","Ibiza",12.3F, 10.0F, 144.0F)
     println(pepino.obtenerInformacion())
-    println(pepino.realizaViaje(150.0F)) // Si sale negativo es porque falta combustible para realizar el viaje completp
-
-
-
-
-    /*
-    var coche = Automovil("Cupra","Formentor",10.0,10.0,100,false, false)
+    println(pepino.realizaViaje(160.0F)) // Si pongo un valor muy alto y sin hibrido me sale bien
+    println(pepino)
+    println("-------------------------------------------")
+    println()
+    var coche = Automovil("Paco","Cupra","Formentor",10.0f,10.0f,100f,false)
     println(coche)
     println(coche.realizarDerrape())
-    println(coche.cambiarCondicionBritanica(true))
+    //println(coche.cambiarCondicionBritanica(true)) unresolved reference? y como cambio la condicion?
     println(coche)
+    println("-------------------------------------------")
+    println()
 
-    var moto = Motocicleta("BMW","SI",5.0,1.0,2000,125)
+    var moto = Motocicleta("Elia el loco","BMW","SI",5.0f,1.0f,2000f,125)
     println(moto)
     println(moto.realizaCaballito())
     println(moto.calcularAutonomia())
-    println(moto.repostar(200.0))
-
-     */
+    println(moto.repostar(200.0f))
+    println(moto)
+    println("-------------------------------------------")
+    println()
 }

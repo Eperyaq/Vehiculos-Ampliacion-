@@ -45,7 +45,7 @@ open class Vehiculo(
      */
     open fun calcularAutonomia() = combustibleActual * KM_POR_LITRO // = 100.0
 
-    /*
+    /**
     * Realiza un viaje y resta gasolina, si sale negativo son los km que le faltan para llegar al destino
     * problemitass
     **/
@@ -60,7 +60,7 @@ open class Vehiculo(
         return distancia - distanciaARecorrer
 
     }
-    /*
+    /**
     * Actualiza el combustible para ver cuanto queda
     *
     * @Params restante:Float -> Indica el valor a restar

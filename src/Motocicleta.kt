@@ -1,9 +1,10 @@
-class Motocicleta(marca:String,
+class Motocicleta(nombre:String,
+                  marca:String,
                   modelo:String,
                   capacidadCombustible: Float,
                   combustibleActual:Float,
                   kilometrosActuales:Float,
-                  val cilindrada: Int):Vehiculo(marca, modelo,capacidadCombustible,combustibleActual,kilometrosActuales) {
+                  val cilindrada: Int):Vehiculo(nombre,marca, modelo,capacidadCombustible,combustibleActual,kilometrosActuales) {
 
     override fun calcularAutonomia(): Float {
         var recorrer2 = combustibleActual * 20
