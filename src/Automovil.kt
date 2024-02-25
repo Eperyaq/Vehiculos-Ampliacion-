@@ -43,7 +43,11 @@ class Automovil(
     }
 
 
-    //sobreescribir el realizar viaje para el combustible por si es hibrido
+    /**
+     * Realiza un viaje adaptado a los vehiculos
+     *
+     * @param distancia: Float, distancia que tiene que hacer en el viaje
+     * */
     override fun realizaViaje(distancia: Float): Float {
         if (esHibrido == true) {
             val distanciaARecorrer = minOf(calcularAutonomia(), distancia)
@@ -74,18 +78,16 @@ class Automovil(
      * Adapatado para la carrera
      * */
     fun realizarDerrape(numeroDeFiligranas:Int):Float{
-        var derrapar = 0.0f
-        while (numeroDeFiligranas>0) {
+        var derrapar = combustibleActual
+        var filigranasRestates = numeroDeFiligranas
+
+        while (filigranasRestates>0) {
             if (esHibrido) { // si es hibrido consume 6.25km
-                var derrapar = combustibleActual - (combustibleActual * 6.25F)
-                return derrapar
-
+                 derrapar -=  derrapar * 6.25F
             } else { //si no es hibrido consume 7.5km
-                var derrapar = combustibleActual - (combustibleActual * 7.5F)
-                return derrapar
-
+                 derrapar -=  derrapar * 7.5F
             }
-            numeroDeFiligranas--
+            filigranasRestates--
         }
         return  derrapar
     }

@@ -1,25 +1,14 @@
 fun main() {
-    var pepino = Vehiculo("VITI","Seat","Ibiza",12.3F, 10.0F, 144.0F)
-    println(pepino.obtenerInformacion())
-    println(pepino.realizaViaje(160.0F)) // Si pongo un valor muy alto y sin hibrido me sale bien
-    println(pepino)
-    println("-------------------------------------------")
-    println()
-    var coche = Automovil("Paco","Cupra","Formentor",10.0f,10.0f,100f,false)
-    println(coche)
-    println(coche.realizarDerrape())
-    //println(coche.cambiarCondicionBritanica(true)) unresolved reference? y como cambio la condicion?
-    println(coche)
-    println("-------------------------------------------")
-    println()
+    val aurora = Automovil("Aurora", "Seat", "Panda", 50f, 50f * 0.1f, 0f, true) // Coche eléctrico con capacidad de 50 litros, inicia con el 10%
+    val boreal = Automovil("Boreal", "BMW", "M8", 80f, 80f * 0.1f, 0f, false) // SUV híbrido con capacidad de 80 litros, inicia con el 10%
+    val cefiro = Motocicleta("Céfiro", "Derbi", "Motoreta", 15f, 15f * 0.1f, 0f, 500) // Motocicleta de gran cilindrada con capacidad de 15 litros, inicia con el 10%
+    val dinamo = Automovil("Dinamo", "Cintroen", "Sor", 70f, 70f * 0.1f, 0f, true) // Camioneta eléctrica con capacidad de 70 litros, inicia con el 10%
+    val eclipse = Automovil("Eclipse", "Renault", "Espacio", 60f, 60f * 0.1f, 0f, false) // Coupé deportivo con capacidad de 60 litros, inicia con el 10%
+    val fenix = Motocicleta("Fénix", "Honda", "Vital", 20f, 20f * 0.1f, 0f, 250) // Motocicleta eléctrica con capacidad de 20 litros, inicia con el 10%
 
-    var moto = Motocicleta("Elia el loco","BMW","SI",5.0f,1.0f,2000f,10)
-    println(moto)
-    println(moto.realizaViaje(4.0f)) // valor pequeño da negativo, valor grande esta bien
-    println(moto.realizaCaballito())
-    println(moto.calcularAutonomia())
-    println(moto.repostar(200.0f))
-    println(moto)
-    println("-------------------------------------------")
-    println()
+    val listaParticipantes = listOf(aurora, boreal, cefiro, dinamo, eclipse, fenix)
+
+
+    val carrera1 = Carrera ("Carrera Pistón", 1000.0f,listaParticipantes)
+    println(carrera1.iniciaCarrera())
 }

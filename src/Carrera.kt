@@ -46,18 +46,46 @@ class Carrera(
         val kmARecorrer = Random.nextInt(10..201).toFloat()
         vehiculo.realizaViaje(kmARecorrer)
 
-        val numeroFiligranas = Random.nextInt(0..2)
-        if (vehiculo is Automovil){
-
+        var numeroFiligranas = Random.nextInt(0..2)
+        while (numeroFiligranas > 0) { // bucle que va haciendo el numero de filigranas que hayan salido, se van restando las filigranas restantes hasta que acaba y se sale del bucle
+            realizaFiligrana(vehiculo)
+            numeroFiligranas--
         }
 
-        if (vehiculo.combustibleActual == 0.0f){
+        if (vehiculo.combustibleActual == 0.0f){ //si se queda sin gasolina el vehiculo, reposta gasolina
             vehiculo.repostar()
         }
     }
 
+    /**
+     * Realiza filigrana dependiendo de el numero de filigranas que se introduzcan
+     * */
+    fun realizaFiligrana(vehiculo: Vehiculo){
+        if (vehiculo is Automovil){
+            vehiculo.realizarDerrape()
+        }else if (vehiculo is Motocicleta){
+            vehiculo.realizaCaballito()
+        }
+    }
 
-    fun iniciaCarrera() {
+/*
+    fun obtenerResultados():ResultadoCarrera{ //no se como hacerlo
+
+    }
+
+ */
+    /*
+    fun registrarAccion(vehiculo: Vehiculo, accion:String){
+
+    }
+    */
+
+
+
+    /**
+     * Inicia la carrera usando todas las funciones necesarias para que la carrera funcione bien.
+     * */
+    open fun iniciaCarrera() {
 
         estado = true
 

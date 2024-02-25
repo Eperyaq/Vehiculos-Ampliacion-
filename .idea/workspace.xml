@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6563f5c-33e9-4f3c-a410-ca315dc959b3" name="Changes" comment="un par de cambios bomba">
+    <list default="true" id="e6563f5c-33e9-4f3c-a410-ca315dc959b3" name="Changes" comment="se ha roto el ide por la cara">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Automovil.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Automovil.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Carrera.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Carrera.kt" afterDir="false" />
@@ -90,14 +90,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708693352837</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="se ha roto el ide por la cara">
+      <option name="closed" value="true" />
+      <created>1708862316781</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708862316781</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Terminado" />
     <MESSAGE value="Terminado con un par de problemas en el coche" />
     <MESSAGE value="un par de cambios bomba" />
-    <option name="LAST_COMMIT_MESSAGE" value="un par de cambios bomba" />
+    <MESSAGE value="se ha roto el ide por la cara" />
+    <option name="LAST_COMMIT_MESSAGE" value="se ha roto el ide por la cara" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
