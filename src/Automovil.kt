@@ -61,13 +61,33 @@ class Automovil(
      * Realzia un derrape y gasta combustible dependiendo el tipo de coche que sea
      * */
     fun realizarDerrape():Float{
-        if (esHibrido == true){ // si es hibrido consume 6.25km
+        if (esHibrido){ // si es hibrido consume 6.25km
             var derrapar = combustibleActual - (combustibleActual * 6.25F)
             return derrapar
         }else { //si no es hibrido consume 7.5km
             var derrapar = combustibleActual - (combustibleActual * 7.5F)
             return derrapar
         }
+    }
+    /**
+     * Realiza un derrape y gasta combustible dependiendo el tipo de coche que sea
+     * Adapatado para la carrera
+     * */
+    fun realizarDerrape(numeroDeFiligranas:Int):Float{
+        var derrapar = 0.0f
+        while (numeroDeFiligranas>0) {
+            if (esHibrido) { // si es hibrido consume 6.25km
+                var derrapar = combustibleActual - (combustibleActual * 6.25F)
+                return derrapar
+
+            } else { //si no es hibrido consume 7.5km
+                var derrapar = combustibleActual - (combustibleActual * 7.5F)
+                return derrapar
+
+            }
+            numeroDeFiligranas--
+        }
+        return  derrapar
     }
 
 

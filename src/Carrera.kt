@@ -1,6 +1,6 @@
 import kotlin.random.Random
 import kotlin.random.nextInt
-/*
+
 class Carrera(
         val nombreCarrera: String,
         val distanciaTotal: Float, //km de carrera
@@ -8,27 +8,52 @@ class Carrera(
 ) {
 
     var estado = false
-    val historialCarrera: MutableMap<String, MutableList<String>> // clave nomrbe del coche y
+    val historialCarrera: MutableMap<String, MutableList<String>> = mutableMapOf()  // clave nomrbe del coche y la lista de las acciones
 
-
+    /**
+     * Obtiene un vehiculo aleatorio al principio de cada turno
+     *
+     * @return participante random
+     * */
     fun obtenerVehiculo() : Vehiculo {
         return participantes.random()
     }
 
 
-
-    fun comprobarGanador(distanciaRecorrida:Float):String{
-        if (distanciaRecorrida == distanciaTotal ){
+    /**
+    *Comprueba si hay algun ganador igualando los km de un coche con los km totales de la pista
+    *
+    * @param vehiculo:Vehiculo Un vehiculo para comprobar si ha ganado
+     * @return string felicitando al ganador
+     */
+    fun comprobarGanador(vehiculo: Vehiculo):String{
+        if ( vehiculo.kilometrosActuales == distanciaTotal ){
             estado = false
             return "Felicidades ${Vehiculo.nombres} ha ganado!!"
         }
-            estado = true
-
+        else {
+           return "" //no se que retornar y si no retorno nada me da error
+        }
     }
 
+    /**
+     * Avanaza el vehiculo una cantidad random comprendida entre 10 y 200
+     *
+     * @param vehiculo:Vehiculo - Un vehiculo para avanzar
+     * */
     fun avanzarVehiculo(vehiculo: Vehiculo){
+
         val kmARecorrer = Random.nextInt(10..201).toFloat()
         vehiculo.realizaViaje(kmARecorrer)
+
+        val numeroFiligranas = Random.nextInt(0..2)
+        if (vehiculo is Automovil){
+
+        }
+
+        if (vehiculo.combustibleActual == 0.0f){
+            vehiculo.repostar()
+        }
     }
 
 
@@ -43,13 +68,8 @@ class Carrera(
 
             val vehiculo = obtenerVehiculo()
 
-
-            //avanzarVehiculo(vehiculo)
-
-            //Actualizar posiciones
-
-            //Comprobar si hay ganador
-
+            avanzarVehiculo(vehiculo)
+            comprobarGanador(vehiculo)
 
 
         }
@@ -75,4 +95,4 @@ class Carrera(
     )
 
 }
-*/
+
